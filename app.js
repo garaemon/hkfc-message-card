@@ -8,6 +8,18 @@ var express = require('express')
   , user = require('./routes/user')
   , http = require('http')
   , path = require('path');
+var mongoose = require('mongoose');
+
+var db_name = null;
+
+if (process.env.MONGOLAB_URI) {
+    db_name = process.env.MONGOLAB_URI;
+}
+else {
+    db_name = 'mongodb://localhost/hkfc-message-card';
+}
+
+mongoose.connect(db_name);
 
 var app = express();
 
