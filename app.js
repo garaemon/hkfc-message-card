@@ -8,6 +8,7 @@ var express = require('express')
 , http = require('http')
 , path = require('path');
 var mongoose = require('mongoose');
+require("./models");
 
 var db_name = null;
 

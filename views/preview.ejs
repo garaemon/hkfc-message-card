@@ -17,9 +17,9 @@
             </div>
             <div class="row-fluid">
               <form id="submit-form" method="post" action="/register">
-                <input type="hidden" value="<%- name %>" />
-                <input type="hidden" value="<%- message %>" />
-                <input type="hidden" value="<%- location %>" />
+                <input type="hidden" name="name" value="<%- name %>" />
+                <input type="hidden" name="message" value="<%- message %>" />
+                <input type="hidden" name="location" value="<%- location %>" />
                 <input type="submit" class="btn btn-primary span12" value="この内容で登録"/>
               </form>
             </div>
