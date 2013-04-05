@@ -10,10 +10,28 @@
   <body>
     <div id="preview-wrapper">
       <div class="container">
-        <h2><%= name %></h2>
-        <h2><%= message %></h2>
-        <h2><%= location %></h2>
-      </div>
+        <div class="row">
+          <div class="span12">
+            <div class="well">
+              <h1>プレビュー</h1>
+            </div>
+            <div class="row-fluid">
+              <form id="submit-form" method="post" action="/register">
+                <input type="hidden" value="<%- name %>" />
+                <input type="hidden" value="<%- message %>" />
+                <input type="hidden" value="<%- location %>" />
+                <input type="submit" class="btn btn-primary span12" value="この内容で登録"/>
+              </form>
+            </div>
+            <div id="message-card"
+               style="background-image: url(/images/message-cards/<%= location%>.png)">
+            <pre id="message"><%- message %></pre>
+            <p id="name">
+              <%= name %>
+            </p>
+          </div>
+        </div>
+        </div>
     </div>
   </body>
 </html>
