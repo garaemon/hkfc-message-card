@@ -40,6 +40,9 @@ app.configure('development', function(){
     app.use(express.errorHandler());
 });
 
+app.all("/admin/*", express.basicAuth(function(user, pass) {
+    return user == "hkfc" && pass == "madmagazine";
+}));
 
 routes.routes.forEach(function(r) {
     if (r.get_url && r.get) { 

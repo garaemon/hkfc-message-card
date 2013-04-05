@@ -3,7 +3,7 @@
  * GET home page.
  */
 
-var files = ["_index", "preview", "register"];
+var files = ["_index", "preview", "register", "admin_list"];
 var subDirs = [];
 exports.routes = files.map(function(x) {
   return require("./" + x);

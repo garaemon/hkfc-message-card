@@ -13,11 +13,11 @@ var MessageCard = mongoose.model("MessageCard");
 
 MessageCard.create = function(spec, cb) {
     var name = spec.name;
-    var message = spec.message;
+    var message_sentence = spec.message;
     var location = spec.location;
     var message = new MessageCard();
     message.name = name;
-    message.message = message;
+    message.message = message_sentence;
     message.location = location;
     message.saveAndUpdate(cb);
 };
