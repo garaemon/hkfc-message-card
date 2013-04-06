@@ -5,18 +5,21 @@ exports.post = function(req, res, next) {
     var message = req.param("message");
     var location = req.param("location");
     var cookie_expire = new Date(Date.now() + 60 * 1000);
+    
     if (!name || name.length == 0) {
-        res.cookie("message", message, {expires: cookie_expire});
-        res.cookie("location", location, {expires: cookie_expire});
-        
+        req.flash("location", location);
+        req.flash("message", message);
+        res.redirect("/?error=noname");
     }
     else if (!message || message.length == 0) {
-        res.cookie("name", name, {expires: cookie_expire});
-        res.cookie("location", location, {expires: cookie_expire});
+        req.flash("location", location);
+        req.flash("name", name);
+        res.redirect("/?error=nomessage");
     }
-    else if (!location || location.length == 0) {
-        res.cookie("name", name, {expires: cookie_expire});
-        res.cookie("message", message, {expires: cookie_expire});
+    else if (!location || location.length == 0 || location == "none") {
+        req.flash("name", name);
+        req.flash("message", message);
+        res.redirect("/?error=nolocation");
     }
     else {
         // var newlined_message = message.split("\n").join("<br />");

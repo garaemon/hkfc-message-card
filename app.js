@@ -8,6 +8,8 @@ var express = require('express')
 , http = require('http')
 , path = require('path');
 var mongoose = require('mongoose');
+var flash = require('connect-flash');
+
 require("./models");
 
 var db_name = null;
@@ -24,10 +26,14 @@ mongoose.connect(db_name);
 var app = express();
 
 app.configure(function(){
+    app.use(flash());
+    app.use(express.cookieParser());
+    app.use(express.session({ cookie: { maxAge: 60000 }, secret: process.env["COOKIE_SECRET"]}));
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
     app.set('view engine', 'ejs');
     app.use(express.favicon());
+    
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
     app.use(express.methodOverride());
