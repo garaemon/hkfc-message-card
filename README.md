@@ -1,4 +1,4 @@
 hkfc-message-card
 =================
 
-for the tour final message card
+millions thanks to himekyun
