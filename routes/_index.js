@@ -20,7 +20,7 @@ exports.get = function(req, res, next) {
         var location = req.flash("location");
         var message = req.flash("message");
         var name = req.flash("name");
-        res.render('index', {
+        res.render('index_thanks', {
             location: location,
             name: name,
             message: message,
@@ -28,7 +28,7 @@ exports.get = function(req, res, next) {
         });
     }
     else {
-        res.render('index', {
+        res.render('index_thanks', {
             location: "",
             name: "",
             message: "",
